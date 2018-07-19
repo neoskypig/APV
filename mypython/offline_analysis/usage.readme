@@ -1,0 +1,25 @@
+Steps are below:
+
+1. cd scripts
+2. ./autoplay.sh 10 produt_type or ./autoplay.sh kw_wav_file_dir product_type
+
+Product Type List:
+1. kamino
+2. me
+3. TODO
+
+you can read the detailed results in the CSV file
+
+
+Below is the original steps:
+1. run below command to capture the log:
+adb shell logread -f  | tee Raw_Log_Path_Name # Raw_Log_Path_Name is original log file path and name
+
+2. play key word audio file
+sh autoplay.sh Y #Y means key word audio file will be played Y times
+
+3. log pre preprocess
+sh dataClean.sh Raw_Log_Path_Name X #X is preprocessed log file path
+
+4. analysis the preprocessed log
+python dataAnalysis.py X Y # X is same as step 3, Y is same as step 2
